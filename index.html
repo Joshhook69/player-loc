@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Markers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(
+            document.getElementById('map'),
+            {center: new google.maps.LatLng(32.6987778, -97.0469167), zoom: 5});
+
+        var iconBase =
+            './';
+
+        var icons = {
+          info: {
+            icon: iconBase + 'info.png'
+          }
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(29.934810638427734, -95.68726348876953),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(44.757930755615234, -93.36847686767578),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(34.030521392822266, -118.49040985107422),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(34.138099670410156, -117.91219329833984),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(33.02936935424805, -117.27552032470703),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(31.76913070678711, -106.30046844482422),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(20.714479446411133, -100.44029998779297),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(32.75864028930664, -97.33258056640625),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(19.485919952392578, -99.12090301513672),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(29.77495002746582, -95.60186767578125),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(25.676929473876953, -100.3136978149414),
+            type: 'info'
+          }
+        ];
+
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          var marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: icons[features[i].type].icon,
+            map: map,
+
+          });
+        };
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGEtXUq_kRwB-3b6SmZE8BmU795c4O9jU&callback=initMap">
+    </script>
+  </body>
+</html>
